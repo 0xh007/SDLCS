@@ -3,14 +3,10 @@
 */
 
 #include <SDL2/SDL.h>
-#include "graphics.h"
+#include "game.h"
 
 int main(int argc, char* args[]) {
-  Graphics graphics;
-
-  while (true) {
-
-  }
-
+  Game game;
+  
 	return 0;
 }
