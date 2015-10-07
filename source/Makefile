@@ -1,22 +1,30 @@
-CC = g++
-INC_DIR = headers
-SRC_DIR = src
-OBJ_DIR = object
-COMPILER_FLAGS = -c -Wall -I$(INC_DIR)
-LINKER_FLAGS = -lSDL2
+INC_DIR := headers
+SRC_DIR := src
+OBJ_DIR := object
 
-SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/graphics.cpp
-OBJS = $(OBJ_DIR)/main.o $(OBJ_DIR)/graphics.o
+CC       := g++
+CPPFLAGS := -I$(INC_DIR) -MMD -MP
+CXXFLAGS := -Wall
+LDLIBS   := -lSDL2
 
-DEPS = $(INC_DIR)/graphics.h
+SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+DEPS    := $(wildcard $(OBJ_DIR)/*.d)
 
-all : $(OBJS)
+SDLCS: $(OBJECTS)
+	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp 
-	$(CC) $(COMPILER_FLAGS) $(LINKER_FLAGS) -c $< -o $@
+$(OBJECTS): $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $(OUTPUT_OPTION) $<
 
-$(OBJ_DIR)/%.o: $(DEPS)
+clean: ; $(RM) $(DEPS) $(OBJECTS) SDLCS 
 
-clean:
-	rm -rf $(OBJS) all
-	rm -rf SDLCS
+-include $(DEPS)
+
+$(MAKEFILE_LIST): ;
+%.h: ;
+%:: %,v
+%:: RCS/%,v
+%:: RCS/%
+%:: s.%
+%:: SCCS/s.%
