@@ -4,6 +4,10 @@
 #include <SDL2/SDL.h>
 #include <map>
 
+/* Input class
+ * Keeps track of keyboard state
+ */
+
 class Input {
   public:
     Input();

@@ -1,6 +1,10 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
+/* Graphics Class
+ * Holds all information dealing with graphics for the game
+*/
+
 struct SDL_Window;
 struct SDL_Renderer;
 

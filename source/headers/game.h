@@ -1,6 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
+/* Game class
+ * This class holds all information for our main game loop
+ */
+
 class Graphics;
 
 class Game {

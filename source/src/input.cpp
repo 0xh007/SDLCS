@@ -1,12 +1,10 @@
 #include "input.h"
 
-/* Input class
- * Keeps track of keyboard state
- */
 
 Input::Input() {
 
 }
+
 Input::~Input() {
 
 }
@@ -16,7 +14,6 @@ Input::~Input() {
 void Input::beginNewFrame() {
   this->_pressedKeys.clear();
   this->_releasedKeys.clear();
-
 }
 
 //This gets called when a key is released

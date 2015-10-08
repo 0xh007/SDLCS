@@ -5,7 +5,7 @@ OBJ_DIR := object
 CC       := g++
 CPPFLAGS := -I$(INC_DIR) -MMD -MP
 CXXFLAGS := -Wall
-LDLIBS   := -lSDL2
+LDLIBS   := -lSDL2 -lSDL2_image
 
 SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
